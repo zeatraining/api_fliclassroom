@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+   <center>
+      <h1>{{titulo}}</h1>
+
+      <table>
+         <tr>
+            <th>Nombre     </th>
+            <th>Descripción</th>
+            <th>Versión    </th>
+            <th>Estado     </th>
+            <th>ORDEN      </th>
+         </tr>
+         {% for lis in listado %}
+            <tr>
+               <td>{{lis.ord_nombre}}              </td>
+               <td>{{lis.ord_descripcion}}         </td>
+               <td>{{lis.ord_fkversion.ver_nombre}}</td>
+               <td>{{lis.estado}}                  </td>
+               <td>{{lis|linebreaks}}              </td>
+            </tr>
+         {% endfor %}
+      </table>
+
+   </center>
+{% endblock %}

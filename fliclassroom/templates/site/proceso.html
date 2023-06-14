@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block title %}{{titulo}}{% endblock %}
+{% block content %}
+   <center>
+      <h1>{{titulo}}</h1>
+      <table border="1">
+         <tr>
+            <th>Id         </th>
+            <th>Nombre     </th>
+            <th>Descripción</th>
+            <th>Posición   </th>
+            <th>Color      </th>
+            <th>Orden      </th>
+            <th>Estado     </th>
+            <th>PROCESO    </th>
+         </tr>
+         {% for lis in listado %}
+            <tr>
+               <td style="{{lis.style}}">{{lis.pro_id}}                </td>
+               <td style="{{lis.style}}">{{lis.pro_nombre}}            </td>
+               <td style="{{lis.style}}">{{lis.pro_descripcion}}       </td>
+               <td style="{{lis.style}}">{{lis.pro_posicion}}          </td>
+               <td style="{{lis.style}}">{{lis.pro_color}}             </td>
+               <td style="{{lis.style}}">{{lis.pro_fkorden.ord_nombre}}</td>
+               <td style="{{lis.style}}">{{lis.estado}}                </td>
+               <td style="{{lis.style}}">{{lis|linebreaks}}            </td>
+            </tr>
+         {% endfor %}
+      </table>
+   </center>
+{% endblock %}
